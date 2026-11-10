@@ -19,7 +19,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            // 1. ADD THIS LINE: Enables CORS using the bean defined below
             .cors(Customizer.withDefaults()) 
             
             .csrf(csrf -> csrf.disable())
@@ -57,15 +56,15 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // 2. ADD THIS BEAN: This tells Spring Boot to allow your Vercel frontend to connect
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Allow your live Vercel frontend AND localhost (for local testing)
+        // Allowed Frontend URLs
         configuration.setAllowedOrigins(List.of(
-            "https://my-portfolio-rose-six.vercel.app",
-            "http://localhost:5173" 
+            "https://my-portfolio-fanta2.vercel.app",   // <-- YOUR NEW URL
+            "https://my-portfolio-rose-six.vercel.app", // <-- Old URL
+            "http://localhost:5173"                     // <-- Local testing
         ));
         
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
