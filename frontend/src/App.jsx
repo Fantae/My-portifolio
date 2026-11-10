@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="portfolio-container">
       <header className="hero-section">
-        <h1>Galata Waqwaya Gichile</h1>
+        <h1>Fanta Eba Bededa</h1>
         <h2>Full-Stack AI Developer | Software Engineer</h2>
         <p>
           Welcome to my portfolio. Below are some of the projects I have built 
